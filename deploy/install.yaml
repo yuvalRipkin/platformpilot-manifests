@@ -285,7 +285,6 @@ rules:
   - persistentvolumeclaims
   - pods
   - resourcequotas
-  - secrets
   - services
   verbs:
   - create
