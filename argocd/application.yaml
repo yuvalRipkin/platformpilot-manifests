@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: platformpilot-sync
+  namespace: argocd
+  labels:
+    app: platformpilot
+  # Add labels or finalizers if you want to control cascading deletes
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    # The URL to the repository where your manifests (or Helm charts) are stored
+    repoURL: 'https://github.com/yuvalRipkin/platformpilot-manifests.git'
+    # The specific branch or tag you want to track
+    targetRevision: main
+    # The directory within the repo where the manifests/Helm templates live
+    path: deploy/
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: platformpilot-operator-system
+  syncPolicy:
+    automated:
+      prune: true      # Deletes resources that are no longer in Git
+      selfHeal: true   # Corrects drift if someone manually edits a resource
+    syncOptions:
+      - CreateNamespace=true # Useful if the destination namespace doesn't exist yet
