@@ -1,0 +1,33 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Secrets and sensitive values
+*.env
+secrets.yaml
+secret.yaml
+*-secret.yaml
+*-secrets.yaml
+
+# Helm
+charts/
+*.tgz
+
+# Kustomize build output
+kustomize-output/
+build/
+
+# kubeconfig
+kubeconfig
+kubeconfig.yaml
+*.kubeconfig
+
+# Temporary files
+*.tmp
+*.bak
