@@ -486,7 +486,7 @@ spec:
         - --health-probe-bind-address=:8081
         command:
         - /manager
-        image: 568311962070.dkr.ecr.us-east-1.amazonaws.com/platformpilot-operator:v-d7b8434
+        image: 568311962070.dkr.ecr.us-east-1.amazonaws.com/platformpilot-operator:v-6d8146e
         livenessProbe:
           httpGet:
             path: /healthz
